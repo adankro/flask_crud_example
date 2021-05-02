@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Estados</title>
+</head>
+<body>
+    <h1>Agregar Estado</h1>
+    <form method="POST" action="/">
+    <input type="text" name="clave">
+    <input type="text" name="descripcion">
+    <input type="submit" value="Agregar">
+    </form>
+    <h1>Estados</h1>
+    <table>
+        {% for estado in estados%}
+        <tr>
+            <td>
+                {{estado.clave}}
+            </td>
+            <td>
+                {{estado.descripcion}}
+            </td>
+            <td>
+                <form method="POST" action="./update" style="display: inline">
+                <input type="hidden" value = {{estado.clave}} name="clave">
+                <input type="text" value="{{estado.nueva_descripcion}}" name="nueva_descripcion">
+                <input type="submit" value="Actualizar">
+                </form>
+            </td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
