@@ -54,3 +54,19 @@ def update():
     except Exception as e:
         print(f"Error al actualizar el estado: \n {e}")
     return redirect("/")
+
+
+@app.route("/delete", methods=["POST"])
+def delete():
+    try:
+        clave = request.form.get("clave")
+        estado = Estado.query.filter_by(clave=clave).first()
+        db.session.delete(estado)
+        db.session.commit()
+    except Exception as e:
+        print(f"Error al borrar el estado: \n {e}")
+    return redirect("/")
+
+
+if __name__ == '__main__':
+    app.run()

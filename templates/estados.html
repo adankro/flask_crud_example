@@ -29,7 +29,14 @@
                 <input type="text" value="{{estado.nueva_descripcion}}" name="nueva_descripcion">
                 <input type="submit" value="Actualizar">
                 </form>
+
             </td>
+                <td>
+                    <form method="POST" action="./delete" style="display: inline">
+                        <input type="hidden" value={{estado.clave}} name="clave">
+                        <input type="submit" value="Borrar">
+                    </form>
+                 </td>
             </tr>
         {% endfor %}
     </table>
